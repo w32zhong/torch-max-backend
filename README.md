@@ -1,3 +1,9 @@
+## Added by Me
+```
+pixi run python test.py
+tensor([ 9., 12., 15.])
+```
+
 # Torch's MAX Backend
 
 Simply use [`torch.compile`](https://docs.pytorch.org/tutorials/intermediate/torch_compile_tutorial.html), but with Modular's MAX backend.
