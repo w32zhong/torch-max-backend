@@ -453,11 +453,14 @@ def boxed_func(*args, **kwargs):
 
 class max_backend:
     def __init__(self, gm: torch.fx.GraphModule, example_inputs: list):
+        gm.graph.print_tabular()
+
         self.func_to_execute = aot_autograd(
             fw_compiler=boxed_func, decompositions=DECOMPOSITION_TABLE
         )(gm, example_inputs)
 
     def __call__(self, *args) -> list[torch.Tensor | int | float | None]:
+        print('args:', args)
         result = self.func_to_execute(*args)
         if isinstance(result, tuple):
             return list(result)
