@@ -395,6 +395,7 @@ class BaseMaxCompiler:
             gm.graph.print_tabular()
 
         graph, self.output_blueprint = _GraphFactory().create_graph(gm.graph)
+
         if verbose_enabled():
             print(graph)
         if profiling_enabled():
